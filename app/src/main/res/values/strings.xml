@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">QuizAppMV</string>
+    <string name="welcome_text">Привет</string>
+    <string name="next_button_text">Продолжить</string>
+    <string name="user_name_debug_value">Коля Крутыш</string>
+    <string name="user_name_place_holder">Введите имя</string>
+    <string name="welcome_user">Привет, %1$s</string>
+    <string name="welcome_user_debug">Привет, Коля Крутыш2011</string>
+</resources>
