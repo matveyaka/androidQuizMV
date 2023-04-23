@@ -1,4 +1,4 @@
-package com.matveyaka.quizapp.quizFeature
+package com.matveyaka.quizapp.resultFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,30 +10,31 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.matveyaka.quizapp.R
 import com.matveyaka.quizapp.helpers.dataManager
-import dagger.hilt.android.HiltAndroidApp
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-@HiltAndroidApp
-class QuizFragment:Fragment() {
+@AndroidEntryPoint
+
+class ResultFrament: Fragment() {
+
     @Inject
-    lateinit var manager: dataManager
+    lateinit var storage: dataManager
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_quiz, container, false)
+        return inflater.inflate(R.layout.frsgment_result, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val welcomeLabel = view.findViewById<TextView>(R.id.welcome_text)
-        welcomeLabel.text = getString(R.string.welcome_user, manager.userName)
-
-        val buttonYes = view.findViewById<Button>(R.id.buttonYes)
-        buttonYes.setOnClickListener {
-            findNavController().navigate(R.id.action_quizFragment2_to_resultFrament)
+        val resultText = view.findViewById<TextView>(R.id.resultTest)
+        resultText.text = getString(R.string.test_result, storage.test.score)
+        val restartButton = view.findViewById<Button>(R.id.restartButton)
+        restartButton.setOnClickListener {
+            storage.test.score = 0
+            findNavController().popBackStack(R.id.loginFragment, false)
         }
     }
 }

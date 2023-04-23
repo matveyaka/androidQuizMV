@@ -7,4 +7,6 @@
     <string name="welcome_user">Привет, %1$s</string>
     <string name="welcome_user_debug">Привет, Коля Крутыш2011</string>
     <string name="answer_button_label">ответить</string>
+    <string name="restart_button">давай сначала</string>
+    <string name="test_result">результат: %1$d</string>
 </resources>
